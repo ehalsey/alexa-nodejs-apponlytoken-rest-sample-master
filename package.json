@@ -9,6 +9,7 @@
     "url": "https://github.com/OfficeDev/O365-Nodejs-Microsoft-Graph-App-only"
   },
   "dependencies": {
+    "aws-sdk": "^2.7.21",
     "chalk": "^1.1.1",
     "q": "^1.4.1",
     "request": "^2.67.0"

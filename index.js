@@ -21,7 +21,7 @@
 /**
  * App ID for the skill
  */
-var APP_ID = "amzn1.ask.skill.1a18f42a-78cc-4466-89b1-0f7514652c73";
+var APP_ID = "amzn1.ask.skill.c126aa6d-8be7-4470-8fe5-ce16cc4832b9";
 
 /**
  * The AlexaSkill prototype and helper functions
@@ -76,20 +76,19 @@ HelloWorld.prototype.intentHandlers = {
     "AddCalendarItemIntent": function (intent, session, response) {
         // Get an access token for the app.
         auth.getAccessToken().then(function (token) {
-            console.log("efh here 0");
             // Get all of the users in the tenant.
             graph.getUsers(token)
                 .then(function (users) {
                 // Create an event on each user's calendar.
-                graph.createEvent(token, users);
+                graph.createEvent(token, users).then(function(){
+                    response.tellWithCard("Calendar item created!", "Hello World", "Hello World!");
+                });
                 }, function (error) {
                 console.error('>>> Error getting users: ' + error);
                 });
         }, function (error) {
         console.error('>>> Error getting access token: ' + error);
         });
-        console.log("efh here 1");
-        response.tellWithCard("Created Event!", "Hello World", "Created Event!");
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
         response.ask("You can say hello to me!", "You can say hello to me!");

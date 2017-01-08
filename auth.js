@@ -18,7 +18,6 @@ auth.getAccessToken = function () {
 
   // These are the parameters necessary for the OAuth 2.0 Client Credentials Grant Flow.
   // For more information, see Service to Service Calls Using Client Credentials (https://msdn.microsoft.com/library/azure/dn645543.aspx).
-  console.log("efh here 3");
   var requestParams = {
     grant_type: 'client_credentials',
     client_id: config.clientId,
