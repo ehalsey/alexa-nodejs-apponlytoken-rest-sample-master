@@ -79,10 +79,8 @@ HelloWorld.prototype.intentHandlers = {
             // Get all of the users in the tenant.
             graph.getUsers(token)
                 .then(function (users) {
-                // Create an event on each user's calendar.
-                graph.createEvent(token, users).then(function(){
-                    response.tellWithCard("Calendar item created!", "Hello World", "Hello World!");
-                });
+                    // Create an event on each user's calendar.
+                    var result = graph.createEvent(token, users, response);
                 }, function (error) {
                 console.error('>>> Error getting users: ' + error);
                 });

@@ -40,12 +40,12 @@ graph.getUsers = function (token) {
 // @desc Creates an event on each user's calendar.
 // @param token The app's access token.
 // @param users An array of users in the tenant.
-graph.createEvent = function (token, users) {
+graph.createEvent = function (token, users, r) {
   var i;
   var startTime;
   var endTime;
   var newEvent;
-  for (i = 0; i < users.length; i++) {
+  var id = '86ce0077-bf25-4063-a722-e9d143490b34';
     // The new event will be 30 minutes and take place tomorrow at the current time.
     startTime = new Date();
     startTime.setDate(startTime.getDate() + 1);
@@ -73,11 +73,11 @@ graph.createEvent = function (token, users) {
 
     // Add an event to the current user's calendar.
     request.post({
-      url: 'https://graph.microsoft.com/v1.0/users/' + users[i].id + '/events',
+      url: 'https://graph.microsoft.com/v1.0/users/' + id + '/events',
       headers: {
         'content-type': 'application/json',
         authorization: 'Bearer ' + token,
-        displayName: users[i].displayName
+        displayName: 'Eric Halsey'
       },
       body: JSON.stringify(newEvent)
     }, function (err, response, body) {
@@ -102,10 +102,10 @@ graph.createEvent = function (token, users) {
           }
         } else {
           console.log('>>> Successfully created an event on ' + displayName + "'s calendar.");
+          r.tellWithCard("Calendar item created!", "Hello World", "Hello World!");
         }
       }
     });
-  }
 };
 
 module.exports = graph;
