@@ -1,0 +1,29 @@
+{
+  "session": {
+    "sessionId": "SessionId.18aba64a-4ee5-4c2f-91b4-308d0115766b",
+    "application": {
+      "applicationId": "amzn1.ask.skill.9ee63924-1294-4bac-b172-a04c58246eb3"
+    },
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.AFYJLFXEHRCLZTUVYME7D2KQ4GJZN7AHVFZNONI56SHV4FLZKZKRXGDMTXMZXVKJGSDSDS6OMXQYCODOMK4LRCT3IRGD6BGNT7XLUHX522RBIODPXQ6B4GKPWD6OPXWOK35UEFZW6KRAAKZCO46OMNK3NX3EVJXGN6HB6QTL4GGYTB4CASR3E7H25U4KF3Q5UVYO22LJZITPW4Y"
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.a13be324-7e43-40b5-a360-a474557b718a",
+    "locale": "en-US",
+    "timestamp": "2017-01-07T20:09:51Z",
+    "intent": {
+      "name": "NumberGuessIntent",
+      "slots": {
+        "number": {
+          "name": "number",
+          "value": "100"
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

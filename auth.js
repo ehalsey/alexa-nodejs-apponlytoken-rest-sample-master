@@ -13,10 +13,12 @@ var auth = {};
 // @name getAccessToken
 // @desc Makes a request for a token using client credentials.
 auth.getAccessToken = function () {
+  
   var deferred = Q.defer();
 
   // These are the parameters necessary for the OAuth 2.0 Client Credentials Grant Flow.
   // For more information, see Service to Service Calls Using Client Credentials (https://msdn.microsoft.com/library/azure/dn645543.aspx).
+  console.log("efh here 3");
   var requestParams = {
     grant_type: 'client_credentials',
     client_id: config.clientId,
@@ -37,7 +39,6 @@ auth.getAccessToken = function () {
       deferred.resolve(parsedBody.access_token);
     }
   });
-
   return deferred.promise;
 };
 

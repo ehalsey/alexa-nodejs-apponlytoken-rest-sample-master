@@ -5,7 +5,7 @@
 
 // Application credentials from the Azure Management Portal.
 module.exports = {
-  clientId: 'c48aecef-f346-413c-8c76-835aa6c084ee',
-  clientSecret: '97YueAEGyzGlruCGD41cKm2lC3yP+ZT5glz/QprNJQ0=',
+  clientId: 'eefbd743-d091-45f5-8b93-110320562bdd',
+  clientSecret: 'arJYi/aXcBqQKJ68nXhrylkcgjXPg74FrN/SClJX3Rw=',
   tokenEndpoint: 'https://login.windows.net/f8ac75ce-d250-407e-b8cb-e05f5b4cd913/oauth2/token'
 };
