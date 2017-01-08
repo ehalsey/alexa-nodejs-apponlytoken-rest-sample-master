@@ -1,0 +1,13 @@
+{
+  "intents": [
+    {
+      "intent": "HelloWorldIntent"
+    },
+    {
+      "intent": "AddCalendarItemIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}
