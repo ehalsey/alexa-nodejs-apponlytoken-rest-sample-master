@@ -118,6 +118,6 @@ Session.vim
 .vscode
 typings
 
-#config files
+# config files
 config.js
 *.zip
