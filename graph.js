@@ -5,6 +5,8 @@
 
 var request = require('request');
 var Q = require('q');
+var https = require('https');
+
 
 // The graph module object.
 var graph = {};
@@ -109,6 +111,61 @@ graph.createEvent = function (token, users, r) {
         }
       }
     });
+};
+
+// @name createItem
+// @desc Creates an item in a SP List.
+// @param token The app's access token.
+graph.createItem = function (token, callback) {
+  mailBody = '{}';
+  var outHeaders = {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer ' + token,
+    'Content-Length': mailBody.length
+  };
+  var options = {
+    host: 'graph.microsoft.com',
+    path: '/beta/sharepoint/sites/6c1838eb-37d3-4c25-9f63-b097e52bc7dc,d4fdfd5b-9add-4a9c-bbbc-daeafbc62833/lists/3e5523f7-3059-4759-b0e4-12aa6d3b041e/items/',
+    method: 'POST',
+    headers: outHeaders
+  };
+
+  // Set up the request
+  var post = https.request(options, function (response) {
+    var body = '';
+    response.on('data', function (d) {
+      body += d;
+    });
+    response.on('end', function () {
+      var error;
+      if (response.statusCode === 201) {
+        callback(null);
+      } else {
+        error = new Error();
+        error.code = response.statusCode;
+        error.message = response.statusMessage;
+        // The error body sometimes includes an empty space
+        // before the first character, remove it or it causes an error.
+        body = body.trim();
+        error.innerError = JSON.parse(body).error;
+        // Note: If you receive a 500 - Internal Server Error
+        // while using a Microsoft account (outlok.com, hotmail.com or live.com),
+        // it's possible that your account has not been migrated to support this flow.
+        // Check the inner error object for code 'ErrorInternalServerTransientError'.
+        // You can try using a newly created Microsoft account or contact support.
+        callback(error);
+      }
+    });
+  });
+
+  // write the outbound data to it
+  post.write(mailBody);
+  // we're done!
+  post.end();
+
+  post.on('error', function (e) {
+    callback(e);
+  });
 };
 
 module.exports = graph;

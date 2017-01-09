@@ -1,0 +1,24 @@
+{
+  "session": {
+    "sessionId": "SessionId.1a80e03a-d60f-4240-8f08-5c1b433163e3",
+    "application": {
+      "applicationId": "amzn1.ask.skill.c126aa6d-8be7-4470-8fe5-ce16cc4832b9"
+    },
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.AE4FAZOPCJYK6GBDMI2I25J6B5MLKK4BHKWBS3BM4INPZEKMCXUGGWDL3FJTXNJ6UBI7YFMPIHCUMP6AZZ5KXY4LFNKILYVJL6CQC26B7CWXW2C3HJ73YTUW5QUA7ZH6MDJQI45MOMKK7SVQU2R3OPTRM4M36QLU2ABGIW6DD3XNQ3BJ6OHCKHUFBSGEGHKEDZSDZGME6SGELEI"
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.8126545f-1ff5-43fb-8b1b-91d84aad35b3",
+    "locale": "en-US",
+    "timestamp": "2017-01-08T18:30:15Z",
+    "intent": {
+      "name": "AddListItemIntent",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

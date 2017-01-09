@@ -69,7 +69,8 @@ sts.assumeRole({
         };
 
         var lambda = require('../index.js');
-        var event = require('./addcalendarrequest.json');
+        //var event = require('./addcalendarrequest.json');
+        var event = require('./addlistitemrequest.json');
         lambda.handler(event, context());
     }
 });

@@ -92,6 +92,25 @@ HelloWorld.prototype.intentHandlers = {
         response.tellWithCard("Error:" + errorMsg, "Hello World", "Hello World!");        
         });
     },
+    "AddListItemIntent": function (intent, session, response) {
+        // Get an access token for the app.
+        auth.getAccessToken().then(function (token) {
+            var result = graph.createItem(
+                token, 
+                function(reqError) {
+                    if(reqError) {
+                        response.tellWithCard("Error:" + reqError, "Hello World", "Hello World!");
+                    }
+                    else {
+                        response.tellWithCard("List Item Created", "Hello World", "Hello World!");
+                    }
+                });
+        }, function (error) {
+        var errorMsg = '>>> Error getting access token: ' + error;
+        console.error(errorMsg);
+        response.tellWithCard("Error:" + errorMsg, "Hello World", "Hello World!");        
+        });
+    },
     "AMAZON.HelpIntent": function (intent, session, response) {
         response.ask("You can say hello to me!", "You can say hello to me!");
     }
