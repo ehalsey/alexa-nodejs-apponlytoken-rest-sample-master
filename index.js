@@ -82,10 +82,14 @@ HelloWorld.prototype.intentHandlers = {
                     // Create an event on each user's calendar.
                     var result = graph.createEvent(token, users, response);
                 }, function (error) {
-                console.error('>>> Error getting users: ' + error);
+                    var errorMsg = '>>> Error getting users: ' + error;
+                    console.error(errorMsg);
+                    response.tellWithCard("Error:" + errorMsg, "Hello World", "Hello World!");        
                 });
         }, function (error) {
-        console.error('>>> Error getting access token: ' + error);
+        var errorMsg = '>>> Error getting access token: ' + error;
+        console.error(errorMsg);
+        response.tellWithCard("Error:" + errorMsg, "Hello World", "Hello World!");        
         });
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
